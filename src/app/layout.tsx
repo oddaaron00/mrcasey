@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Casey Goodings" }],
 };
 
+// TODO: Add CSP
 export default function RootLayout({
   children,
 }: {
