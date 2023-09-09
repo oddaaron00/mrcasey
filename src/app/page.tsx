@@ -1,6 +1,11 @@
+import { Metadata } from "next";
 import Header from "./components/Header";
 import { PaddedSection } from "./components/Section";
 import Title from "./components/Title";
+
+export const metadata: Metadata = {
+  robots: "index, nofollow",
+};
 
 export default function Home() {
   return (
