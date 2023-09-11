@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en-GB">
       <body className={`${inter.className} flex h-max flex-col`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
