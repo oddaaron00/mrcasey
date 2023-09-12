@@ -302,7 +302,7 @@ export default function GameScreen({
   };
 
   return (
-    <section id="main">
+    <section>
       <div
         id="mapContainer"
         ref={mapContainer}

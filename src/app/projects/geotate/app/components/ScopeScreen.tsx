@@ -20,7 +20,7 @@ export default function ScopeScreen({
   };
 
   return (
-    <section id="main">
+    <section>
       <form onSubmit={handleSubmit}>
         {scopeOptions.map(({ label, value }) => (
           <label htmlFor={value} key={value}>

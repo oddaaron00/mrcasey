@@ -93,7 +93,7 @@ export default function App() {
   };
 
   return (
-    <article>
+    <article className="flex flex-col items-center">
       {stage === Stage.SCOPE ? (
         <ScopeScreen
           scope={scope}
