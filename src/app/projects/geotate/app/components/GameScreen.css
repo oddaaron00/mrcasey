@@ -1,0 +1,42 @@
+#header {
+  padding: 14px;
+}
+
+#title {
+  text-align: center;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#mapContainer {
+  width: 500px;
+  height: 500px;
+  border-radius: 100%;
+  background-color: #f7f3f3;
+}
+
+#guessForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+}
+
+#guessFormInput {
+  width: 100%;
+  margin: 16px 0px;
+}
+
+#guessFormButton {
+  width: 100%;
+  padding: 14px;
+  font-size: 18pt;
+}
+
+#answerContainer {
+  font-size: 14pt;
+}

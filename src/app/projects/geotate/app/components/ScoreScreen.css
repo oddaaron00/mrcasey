@@ -1,0 +1,21 @@
+.tableFlag {
+  vertical-align: middle;
+}
+
+#tableHeader {
+  text-align: left;
+}
+
+#pointsHeader {
+  text-align: center;
+}
+
+.countryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pointsRow {
+  text-align: center;
+}
