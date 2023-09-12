@@ -92,17 +92,25 @@ export default function App() {
     setScores([...scores, score]);
   };
 
-  return stage === Stage.SCOPE ? (
-    <ScopeScreen scope={scope} setScope={setScope} submitScope={submitScope} />
-  ) : stage === Stage.GAME ? (
-    <GameScreen
-      cities={cities}
-      cumulativeScore={cumulativeScore}
-      setCumulativeScore={setCumulativeScore}
-      setHasComplete={setHasComplete}
-      addScore={addScore}
-    />
-  ) : (
-    <ScoreScreen scores={scores} cumulativeScore={cumulativeScore} />
+  return (
+    <article>
+      {stage === Stage.SCOPE ? (
+        <ScopeScreen
+          scope={scope}
+          setScope={setScope}
+          submitScope={submitScope}
+        />
+      ) : stage === Stage.GAME ? (
+        <GameScreen
+          cities={cities}
+          cumulativeScore={cumulativeScore}
+          setCumulativeScore={setCumulativeScore}
+          setHasComplete={setHasComplete}
+          addScore={addScore}
+        />
+      ) : (
+        <ScoreScreen scores={scores} cumulativeScore={cumulativeScore} />
+      )}
+    </article>
   );
 }
