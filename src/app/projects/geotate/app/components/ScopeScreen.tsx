@@ -20,7 +20,7 @@ export default function ScopeScreen({
   };
 
   return (
-    <main id="main">
+    <section id="main">
       <form onSubmit={handleSubmit}>
         {scopeOptions.map(({ label, value }) => (
           <label htmlFor={value} key={value}>
@@ -53,6 +53,6 @@ export default function ScopeScreen({
           Go
         </button>
       </form>
-    </main>
+    </section>
   );
 }

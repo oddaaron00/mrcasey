@@ -7,7 +7,7 @@ interface IScoreScreen {
 
 export default function ScoreScreen({ scores, cumulativeScore }: IScoreScreen) {
   return (
-    <main id="main">
+    <section id="main">
       <table style={{ width: 500 }}>
         <thead id="tableHeader">
           <tr>
@@ -35,6 +35,6 @@ export default function ScoreScreen({ scores, cumulativeScore }: IScoreScreen) {
         </tbody>
       </table>
       <p>You scored {cumulativeScore} points.</p>
-    </main>
+    </section>
   );
 }

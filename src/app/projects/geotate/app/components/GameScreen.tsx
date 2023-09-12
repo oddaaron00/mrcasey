@@ -302,72 +302,67 @@ export default function GameScreen({
   };
 
   return (
-    <>
-      <header id="header">
-        <h1 id="title">Geotate</h1>
-      </header>
-      <main id="main">
-        <div
-          id="mapContainer"
-          ref={mapContainer}
-          style={isLoading ? { visibility: "hidden" } : {}}
-        />
-        <form
-          id="guessForm"
-          onSubmit={
-            !hasGuessed
-              ? submitGuess
-              : cityIndex === cities.length - 1
-              ? endGame
-              : nextCity
+    <section id="main">
+      <div
+        id="mapContainer"
+        ref={mapContainer}
+        style={isLoading ? { visibility: "hidden" } : {}}
+      />
+      <form
+        id="guessForm"
+        onSubmit={
+          !hasGuessed
+            ? submitGuess
+            : cityIndex === cities.length - 1
+            ? endGame
+            : nextCity
+        }
+        style={isLoading ? { visibility: "hidden" } : {}}
+      >
+        <input
+          id="guessFormInput"
+          type="range"
+          min={initialBearing - 179}
+          max={initialBearing + 180}
+          value={
+            currentBearing > initialBearing + 180
+              ? currentBearing - 360
+              : currentBearing < initialBearing - 179
+              ? currentBearing + 360
+              : currentBearing
           }
-          style={isLoading ? { visibility: "hidden" } : {}}
-        >
-          <input
-            id="guessFormInput"
-            type="range"
-            min={initialBearing - 179}
-            max={initialBearing + 180}
-            value={
-              currentBearing > initialBearing + 180
-                ? currentBearing - 360
-                : currentBearing < initialBearing - 179
-                ? currentBearing + 360
-                : currentBearing
-            }
-            onChange={(event) =>
-              map.current?.setBearing(Number(event.target.value))
-            }
-            disabled={hasGuessed}
-          />
-          <input
-            type="submit"
-            id="guessFormButton"
-            value={
-              !hasGuessed
-                ? "Guess"
-                : cityIndex === cities.length - 1
-                ? "Finish"
-                : "Next"
-            }
-          />
-        </form>
-        <div id="answerContainer">
-          {hasGuessed && (
-            <>
-              <p>
-                Selected bearing:{" "}
-                {selectedBearing
-                  ? selectedBearing < 0
-                    ? selectedBearing + 360
-                    : selectedBearing
-                  : 0}
-              </p>
-              <p>Points: {cumulativeScore}</p>
-            </>
-          )}
-        </div>
-      </main>
-    </>
+          onChange={(event) =>
+            map.current?.setBearing(Number(event.target.value))
+          }
+          disabled={hasGuessed}
+        />
+        <input
+          type="submit"
+          id="guessFormButton"
+          value={
+            !hasGuessed
+              ? "Guess"
+              : cityIndex === cities.length - 1
+              ? "Finish"
+              : "Next"
+          }
+        />
+      </form>
+      <div id="answerContainer">
+        {hasGuessed && (
+          <>
+            <p>
+              Selected bearing:{" "}
+              {selectedBearing
+                ? selectedBearing < 0
+                  ? selectedBearing + 360
+                  : selectedBearing
+                : 0}
+            </p>
+            <p>Points: {cumulativeScore}</p>
+          </>
+        )}
+      </div>
+    </section>
   );
 }
