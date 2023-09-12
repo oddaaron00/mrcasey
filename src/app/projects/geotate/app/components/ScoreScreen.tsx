@@ -1,4 +1,4 @@
-import "./ScoreScreen.css";
+import Image from "next/image";
 
 interface IScoreScreen {
   scores: Record<string, unknown>[];
@@ -8,28 +8,28 @@ interface IScoreScreen {
 export default function ScoreScreen({ scores, cumulativeScore }: IScoreScreen) {
   return (
     <section>
-      <table style={{ width: 500 }}>
-        <thead id="tableHeader">
+      <table className="w-screen">
+        <thead>
           <tr>
             <th>City</th>
             <th>Country</th>
-            <th id="pointsHeader">Points</th>
+            <th>Points</th>
           </tr>
         </thead>
         <tbody>
           {scores.map(({ city, country, code, points }) => (
             <tr key={`${city}, ${country}`}>
-              <td>{city as string}</td>
-              <td className="tableRow countryRow">
-                {country as string}
-                <img
-                  className="tableFlag"
+              <td className="w-1/3">{city as string}</td>
+              <td className="my-2 flex items-center justify-center">
+                <span className="mx-2">{country as string}</span>
+                <Image
                   alt={`Flag of ${country}`}
                   src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${code}.svg`}
-                  height={40}
+                  height={20}
+                  width={70}
                 />
               </td>
-              <td className="tableRow pointsRow">{points as string}</td>
+              <td className="w-1/3">{points as string}</td>
             </tr>
           ))}
         </tbody>
