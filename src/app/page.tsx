@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import Header from "./components/Header";
 import { PaddedSection } from "./components/Section";
 import Title from "./components/Title";
@@ -20,7 +21,7 @@ export default function Home() {
           <p>Coming soon</p>
         </PaddedSection>
         <PaddedSection id="projects" subtitle="Projects">
-          <p>Coming soon</p>
+          <Link href="/projects/geotate">Geotate</Link>
         </PaddedSection>
         <PaddedSection id="cv" subtitle="CV">
           <p>Coming soon</p>
