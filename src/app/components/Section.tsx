@@ -27,9 +27,12 @@ export function PaddedSection({
   extraClasses,
   children,
 }: ISection) {
-  const classString = `p-8 ${extraClasses}`;
+  const defaultClasses = "p-8";
+  const classes = extraClasses
+    ? `${defaultClasses} ${extraClasses}`
+    : defaultClasses;
   return (
-    <Section id={id} subtitle={subtitle} extraClasses={classString}>
+    <Section id={id} subtitle={subtitle} extraClasses={classes}>
       {children}
     </Section>
   );
