@@ -26,7 +26,7 @@ export default function ScopeScreen({
     <section>
       <form onSubmit={handleSubmit}>
         <ScopeGroup scopes={scopeOptions} setScope={setScope} />
-        <label htmlFor="cityCount">
+        <div className="border-black-75 rounded-lg border-2">
           <input
             type="number"
             name="cityCount"
@@ -34,18 +34,21 @@ export default function ScopeScreen({
             min={1}
             value={cityCount}
             onChange={(event) => setCityCount(Number(event.target.value))}
+            className="mx-1 bg-white"
           />
-        </label>
-        <button
-          type="submit"
-          disabled={
-            scope === undefined ||
-            cityCount > (capitalCountMap.get(scope) ?? 0) ||
-            isNextDisabled
-          }
-        >
-          {isNextDisabled ? "Loading data" : "Go"}
-        </button>
+          <label htmlFor="cityCount" aria-label="City count" />
+          <button
+            type="submit"
+            disabled={
+              scope === undefined ||
+              cityCount > (capitalCountMap.get(scope) ?? 0) ||
+              isNextDisabled
+            }
+            className="cursor-pointer px-2 py-1"
+          >
+            {isNextDisabled ? "Loading data" : "Go"}
+          </button>
+        </div>
       </form>
     </section>
   );
