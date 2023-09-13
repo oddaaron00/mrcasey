@@ -6,15 +6,22 @@ interface IScopeItem {
 
 export default function ScopeItem({ label, value, setScope }: IScopeItem) {
   return (
-    <label htmlFor={value} key={value}>
+    <>
       <input
         type="radio"
         name="scope"
         id={value}
         value={value}
         onClick={() => setScope(value)}
+        className="peer appearance-none"
       />
-      {label}
-    </label>
+      <label
+        htmlFor={value}
+        key={value}
+        className="peer-checked:bg-black-75 hover:bg-black-90 rounded-lg px-2 py-1"
+      >
+        {label}
+      </label>
+    </>
   );
 }

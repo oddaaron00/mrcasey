@@ -8,7 +8,11 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      black: "#0b1b24",
+      black: {
+        DEFAULT: "#0b1b24",
+        75: "#9dc8e1",
+        90: "#d8e9f3",
+      },
       white: "#f8fbfd",
     },
     extend: {
