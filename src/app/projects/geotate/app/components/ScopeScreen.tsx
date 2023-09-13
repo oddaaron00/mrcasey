@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { capitalCountMap, scopeOptions } from "../constants";
+import ScopeGroup from "./ScopeGroup";
 
 interface IScopeScreen {
   scope: string | undefined;
@@ -24,18 +25,7 @@ export default function ScopeScreen({
   return (
     <section>
       <form onSubmit={handleSubmit}>
-        {scopeOptions.map(({ label, value }) => (
-          <label htmlFor={value} key={value}>
-            <input
-              type="radio"
-              name="scope"
-              id={value}
-              value={value}
-              onClick={() => setScope(value)}
-            />
-            {label}
-          </label>
-        ))}
+        <ScopeGroup scopes={scopeOptions} setScope={setScope} />
         <label htmlFor="cityCount">
           <input
             type="number"
