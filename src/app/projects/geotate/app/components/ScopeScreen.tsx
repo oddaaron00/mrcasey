@@ -5,12 +5,14 @@ interface IScopeScreen {
   scope: string | undefined;
   setScope: (scope: string) => void;
   submitScope: (scope: string, cityCount: number) => void;
+  isNextDisabled: boolean;
 }
 
 export default function ScopeScreen({
   scope,
   setScope,
   submitScope,
+  isNextDisabled,
 }: IScopeScreen) {
   const [cityCount, setCityCount] = useState(5);
 
@@ -47,10 +49,12 @@ export default function ScopeScreen({
         <button
           type="submit"
           disabled={
-            scope === undefined || cityCount > (capitalCountMap.get(scope) ?? 0)
+            scope === undefined ||
+            cityCount > (capitalCountMap.get(scope) ?? 0) ||
+            isNextDisabled
           }
         >
-          Go
+          {isNextDisabled ? "Loading data" : "Go"}
         </button>
       </form>
     </section>

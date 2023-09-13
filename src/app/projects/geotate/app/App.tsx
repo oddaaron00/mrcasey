@@ -1,12 +1,10 @@
 "use client";
 
+import Loading from "@/app/loading";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { useState } from "react";
-import continentCodeCountryCodeDict from "./assets/continentCodeCountryCodeDict.json";
-import allCities from "./assets/worldCitiesComplete.json";
-import GameScreen from "./components/GameScreen";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import ScopeScreen from "./components/ScopeScreen";
-import ScoreScreen from "./components/ScoreScreen";
 import {
   CAPITALS_AFRICA,
   CAPITALS_ASIA,
@@ -15,20 +13,15 @@ import {
   CAPITALS_OCEANIA,
   CAPITALS_SOUTH_AMERICA,
 } from "./constants";
-import { Stage } from "./types";
-
-function getCapitalsInContinent(continentCode: string) {
-  const continentCountryCodes = (
-    continentCodeCountryCodeDict as Record<string, string[]>
-  )[continentCode];
-  const citiesInContinent = Object.values(allCities).filter((city) =>
-    continentCountryCodes.includes(city.iso2),
-  );
-  const capitals = citiesInContinent.filter(
-    (city) => city.capital === "primary",
-  );
-  return capitals;
-}
+import { CityObject, Stage } from "./types";
+const GameScreen = dynamic(() => import("./components/GameScreen"), {
+  ssr: false,
+  loading: Loading,
+});
+const ScoreScreen = dynamic(() => import("./components/ScoreScreen"), {
+  ssr: false,
+  loading: Loading,
+});
 
 export default function App() {
   const [stage, setStage] = useState<Stage>(Stage.SCOPE);
@@ -36,6 +29,34 @@ export default function App() {
   const [cities, setCities] = useState<Record<string, unknown>[]>([]);
   const [scores, setScores] = useState<Record<string, unknown>[]>([]);
   const [cumulativeScore, setCumulativeScore] = useState(0);
+  const [continentCodeCountryCodeDict, setContinentCodeCountryCodeDict] =
+    useState<null | Record<string, string[]>>(null);
+  const [allCities, setAllCities] = useState<null | Record<string, CityObject>>(
+    null,
+  );
+
+  useEffect(() => {
+    import("./assets/continentCodeCountryCodeDict.json").then((data) =>
+      setContinentCodeCountryCodeDict(data.default),
+    );
+    import("./assets/worldCitiesComplete.json").then((data) =>
+      // @ts-ignore
+      setAllCities(data.default),
+    );
+  }, []);
+
+  const getCapitalsInContinent = (continentCode: string) => {
+    const continentCountryCodes = (
+      continentCodeCountryCodeDict as Record<string, string[]>
+    )[continentCode];
+    const citiesInContinent = Object.values(allCities!).filter((city) =>
+      continentCountryCodes.includes(city.iso2),
+    );
+    const capitals = citiesInContinent.filter(
+      (city) => city.capital === "primary",
+    );
+    return capitals;
+  };
 
   const submitScope = (scope: string, cityCount: number) => {
     let scopeCities: Record<string, unknown>[];
@@ -99,6 +120,7 @@ export default function App() {
           scope={scope}
           setScope={setScope}
           submitScope={submitScope}
+          isNextDisabled={!continentCodeCountryCodeDict || !allCities}
         />
       ) : stage === Stage.GAME ? (
         <GameScreen
