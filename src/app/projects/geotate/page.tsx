@@ -1,5 +1,11 @@
 import Title from "@/app/components/Title";
-import App from "./app/App";
+import Loading from "@/app/loading";
+import dynamic from "next/dynamic";
+
+const App = dynamic(() => import("./app/App"), {
+  ssr: false,
+  loading: Loading,
+});
 
 export default function Geotate() {
   return (
