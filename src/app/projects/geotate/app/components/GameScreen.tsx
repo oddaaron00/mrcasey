@@ -346,9 +346,10 @@ export default function GameScreen({
               ? "Finish"
               : "Next"
           }
+          className="hover:bg-black-75 rounded-lg"
         />
       </form>
-      <div id="answerContainer">
+      <div id="answerContainer" className="m-1">
         {hasGuessed && (
           <>
             <p>
