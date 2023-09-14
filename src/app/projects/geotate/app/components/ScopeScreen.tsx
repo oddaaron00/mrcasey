@@ -24,9 +24,9 @@ export default function ScopeScreen({
 
   return (
     <section>
-      <form onSubmit={handleSubmit} className="p-8">
+      <form onSubmit={handleSubmit} className="relative p-8">
         <ScopeGroup scopes={scopeOptions} setScope={setScope} />
-        <div className="border-black-75 absolute my-2 rounded-lg border-2">
+        <div className="border-black-75 my-2 rounded-lg border-2">
           <input
             type="number"
             name="cityCount"
