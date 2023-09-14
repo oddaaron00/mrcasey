@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Header from "./components/Header";
+import ProjectItem from "./components/ProjectItem";
 import { PaddedSection } from "./components/Section";
 import Title from "./components/Title";
 
@@ -20,7 +21,7 @@ export default function Home() {
           <p>Coming soon</p>
         </PaddedSection>
         <PaddedSection id="projects" subtitle="Projects">
-          <p>Coming soon</p>
+          <ProjectItem name="geotate" label="Geotate" />
         </PaddedSection>
         <PaddedSection id="cv" subtitle="CV">
           <p>Coming soon</p>

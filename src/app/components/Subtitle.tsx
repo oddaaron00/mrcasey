@@ -4,5 +4,9 @@ interface ISubtitle {
 }
 
 export default function Subtitle({ text, extraClasses }: ISubtitle) {
-  return <h2 className={`text-xl ${extraClasses}`}>{text}</h2>;
+  const defaultClasses = "text-xl";
+  const classes = extraClasses
+    ? `${defaultClasses} ${extraClasses}`
+    : defaultClasses;
+  return <h2 className={classes}>{text}</h2>;
 }
