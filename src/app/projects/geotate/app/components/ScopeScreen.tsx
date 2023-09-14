@@ -45,7 +45,7 @@ export default function ScopeScreen({
               cityCount > (capitalCountMap.get(scope) ?? 0) ||
               isNextDisabled
             }
-            className="cursor-pointer px-2 py-1"
+            className="hover:bg-black-75 cursor-pointer rounded-r-sm px-2 py-1 disabled:rounded-r-md disabled:bg-white"
           >
             {isNextDisabled ? "Loading data" : "Go"}
           </button>
