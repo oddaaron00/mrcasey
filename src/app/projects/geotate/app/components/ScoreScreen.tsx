@@ -1,3 +1,4 @@
+import Subtitle from "@/app/components/Subtitle";
 import Image from "next/image";
 
 interface IScoreScreen {
@@ -22,19 +23,24 @@ export default function ScoreScreen({ scores, cumulativeScore }: IScoreScreen) {
               <td className="w-1/3">{city as string}</td>
               <td className="my-2 flex items-center justify-center">
                 <span className="mx-2">{country as string}</span>
-                <Image
-                  alt={`Flag of ${country}`}
-                  src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${code}.svg`}
-                  height={20}
-                  width={70}
-                />
+                <div className="relative h-8 w-16">
+                  <Image
+                    alt={`Flag of ${country}`}
+                    src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${code}.svg`}
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
               </td>
               <td className="w-1/3">{points as string}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <p>You scored {cumulativeScore} points.</p>
+      <Subtitle
+        text={`You scored ${cumulativeScore} points.`}
+        extraClasses="m-16"
+      />
     </section>
   );
 }
