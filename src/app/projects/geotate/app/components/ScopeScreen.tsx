@@ -22,6 +22,7 @@ export default function ScopeScreen({
     submitScope(scope!, cityCount);
   };
 
+  // TODO: When data is loading, column pushes to the side
   return (
     <section>
       <form onSubmit={handleSubmit} className="relative p-8">
