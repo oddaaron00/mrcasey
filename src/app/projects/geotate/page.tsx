@@ -2,7 +2,7 @@ import Title from "@/app/components/Title";
 import Loading from "@/app/loading";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
-import GoToGithub from "../components/GoToGithub";
+import GoToGithub from "../../components/GoToGithub";
 
 export const metadata: Metadata = {
   title: "mrcasey | Geotate",
