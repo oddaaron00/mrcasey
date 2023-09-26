@@ -1,4 +1,4 @@
-import Subtitle from "@/app/components/Subtitle";
+import { Subtitle } from "@/app/components";
 import ScopeItem from "./ScopeItem";
 
 interface IScopeGroup {

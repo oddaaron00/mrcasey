@@ -1,4 +1,4 @@
-import Subtitle from "@/app/components/Subtitle";
+import { Subtitle } from "@/app/components";
 import Image from "next/image";
 
 interface IScoreScreen {

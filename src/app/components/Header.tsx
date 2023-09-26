@@ -1,4 +1,4 @@
-import HeaderLink from "./HeaderLink";
+import { HeaderLink } from ".";
 
 export default function Header() {
   return (

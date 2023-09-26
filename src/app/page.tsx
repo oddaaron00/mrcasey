@@ -1,8 +1,6 @@
 import { Metadata } from "next";
-import Header from "./components/Header";
-import ProjectItem from "./components/ProjectItem";
+import { Header, ProjectItem, Title } from "./components";
 import { PaddedSection } from "./components/Section";
-import Title from "./components/Title";
 
 export const metadata: Metadata = {
   robots: "index, nofollow",

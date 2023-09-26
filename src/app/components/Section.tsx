@@ -1,4 +1,4 @@
-import Subtitle from "./Subtitle";
+import { Subtitle } from ".";
 
 interface ISection {
   id?: string;
