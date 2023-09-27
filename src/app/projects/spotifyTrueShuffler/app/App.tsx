@@ -1,3 +1,4 @@
+import { randomBytes } from "crypto";
 import { redirect } from "next/navigation";
 
 export default function App() {
@@ -15,7 +16,7 @@ export default function App() {
         : "https://www.mrcasey.com",
     ).toString();
     console.log("redirectUri:", redirectUri);
-    const state = "TEST_STATE";
+    const state = randomBytes(20).toString("hex");
 
     const fullUrl = `https://accounts.spotify.com/authorize?response_type=${responseType}&client_id=${clientId}&scope=${scope}&redirect_uri=${redirectUri}&state=${state}`;
 
