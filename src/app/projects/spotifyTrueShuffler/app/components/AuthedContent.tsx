@@ -1,6 +1,4 @@
-"use client";
-
-import getCurrentUserProfile from "../functions/getCurrentUserId";
+import { PlaylistsSection } from ".";
 
 interface IAuthedApp {
   accessToken: string;
@@ -9,14 +7,7 @@ interface IAuthedApp {
 const AuthedContent: React.FC<IAuthedApp> = ({ accessToken }) => {
   return (
     <>
-      <button
-        onClick={async () => {
-          const result = await getCurrentUserProfile(accessToken);
-          console.log("result:", result);
-        }}
-      >
-        Get Current User Id
-      </button>
+      <PlaylistsSection accessToken={accessToken} />
     </>
   );
 };

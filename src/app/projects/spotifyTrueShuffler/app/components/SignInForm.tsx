@@ -8,8 +8,7 @@ const SignInForm: React.FC<{}> = () => {
     const responseType = "code";
     const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
     if (!clientId) return;
-    const scope =
-      "playlist-read-collaborative playlist-read-private user-read-email user-read-private";
+    const scope = "playlist-read-private";
     const redirectUri = new URL(
       "/projects/spotifyTrueShuffler/callback",
       process.env.NODE_ENV === "development"
@@ -19,7 +18,7 @@ const SignInForm: React.FC<{}> = () => {
     console.log("redirectUri:", redirectUri);
     const state = randomBytes(20).toString("hex");
 
-    const fullUrl = `https://accounts.spotify.com/authorize?response_type=${responseType}&client_id=${clientId}&scope=${scope}&redirect_uri=${redirectUri}&state=${state}`;
+    const fullUrl = `https://accounts.spotify.com/authorize?response_type=${responseType}&client_id=${clientId}&scope=${scope}&redirect_uri=${redirectUri}&state=${state}&show_dialog=true`;
 
     redirect(fullUrl);
   };
