@@ -1,7 +1,7 @@
 const getPlaylistItems = (
   accessToken: string,
   playlistId: string,
-): Promise<Record<string, unknown>> =>
+): Promise<{ total: number; limit: number }> =>
   fetch(
     `https://api.spotify.com/v1/playlists/${playlistId}/tracks?fields=limit%2Ctotal`,
     {

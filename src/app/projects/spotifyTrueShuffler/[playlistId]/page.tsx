@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { getPlaylistItems } from "./functions";
+import { getPlaylistItemTotalAndLimit } from "./functions";
 
 interface IPlaylistPage {
   params: {
@@ -12,7 +12,10 @@ const PlaylistPage: React.FC<IPlaylistPage> = async ({
 }) => {
   const accessToken = cookies().get("spotifyAccessToken")?.value;
   if (!accessToken) throw new Error("No Spotify access token cookie");
-  const playlist = await getPlaylistItems(accessToken, playlistId);
+  const { total, limit } = await getPlaylistItemTotalAndLimit(
+    accessToken,
+    playlistId,
+  );
 
   return <main className="flex-1 flex-col text-center">PlaylistPage</main>;
 };
