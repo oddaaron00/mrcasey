@@ -5,7 +5,7 @@ interface IPlaylistSectionItem {
 }
 
 const PlaylistSectionItem: React.FC<IPlaylistSectionItem> = ({ playlist }) => {
-  return <div>{playlist.id}</div>;
+  return <div>{playlist.name}</div>;
 };
 
 export default PlaylistSectionItem;
