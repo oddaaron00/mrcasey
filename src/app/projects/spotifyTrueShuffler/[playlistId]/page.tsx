@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { TrackPlayer } from "./component";
 import { getPlaylistItemTotal, getPlaylistItems } from "./functions";
 
 interface IPlaylistPage {
@@ -14,9 +15,13 @@ const PlaylistPage: React.FC<IPlaylistPage> = async ({
   const accessToken = cookies().get("spotifyAccessToken")?.value;
   if (!accessToken) redirect("/projects/spotifyTrueShuffler");
   const total = await getPlaylistItemTotal(accessToken, playlistId);
-  const playlistItems = await getPlaylistItems(accessToken, playlistId, total);
+  const playlistTracks = await getPlaylistItems(accessToken, playlistId, total);
 
-  return <main className="flex-1 flex-col text-center">PlaylistPage</main>;
+  return (
+    <main className="flex-1 flex-col text-center">
+      <TrackPlayer tracks={playlistTracks} />
+    </main>
+  );
 };
 
 export default PlaylistPage;
