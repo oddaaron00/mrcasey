@@ -7,10 +7,10 @@ interface IPlaylistSectionItem {
 
 const PlaylistSectionItem: React.FC<IPlaylistSectionItem> = ({ playlist }) => {
   return (
-    <li>
+    <li className="p-1">
       <Link
         href={`/projects/spotifyShuffleCurator/${playlist.id}`}
-        className="hover:underline"
+        className="inline-block w-full rounded-lg px-8 py-2 text-xl hover:bg-black-90"
       >
         {playlist.name}
       </Link>
