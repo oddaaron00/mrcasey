@@ -25,8 +25,8 @@ export default function Home() {
         >
           <ProjectItem name="geotate" label="Geotate" />
           <ProjectItem
-            name="trueSpotifyShuffler"
-            label="True Spotify Shuffler"
+            name="spotifyTrueShuffler"
+            label="Spotify True Shuffler"
           />
         </PaddedSection>
         <PaddedSection id="cv" subtitle="CV">
