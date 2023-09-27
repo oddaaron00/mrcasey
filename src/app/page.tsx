@@ -18,8 +18,16 @@ export default function Home() {
         <PaddedSection id="about" subtitle="About Me">
           <p>Coming soon</p>
         </PaddedSection>
-        <PaddedSection id="projects" subtitle="Projects">
+        <PaddedSection
+          id="projects"
+          subtitle="Projects"
+          extraClasses="flex flex-col"
+        >
           <ProjectItem name="geotate" label="Geotate" />
+          <ProjectItem
+            name="trueSpotifyShuffler"
+            label="True Spotify Shuffler"
+          />
         </PaddedSection>
         <PaddedSection id="cv" subtitle="CV">
           <p>Coming soon</p>
