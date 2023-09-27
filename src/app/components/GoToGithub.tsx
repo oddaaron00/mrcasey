@@ -14,7 +14,7 @@ export default function GoToGithub({ href }: IGoToGithub) {
         target="_blank"
         className="flex items-center justify-center"
       >
-        <span>See the code:</span>
+        <span className="pr-1">See the code:</span>
         <Image
           src="/github-mark.png"
           alt="GitHub Logo"

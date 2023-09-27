@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Header />
       <main className="flex-1 flex-col text-center">
-        <div className="p-2">
+        <div>
           <Title text="mrcasey" extraClasses="pb-1" />
           <span className="pt-1 text-xl">{"That's me :)"}</span>
         </div>
