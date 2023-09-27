@@ -1,13 +1,19 @@
+import { Suspense } from "react";
 import { PlaylistSection } from ".";
+import getCurrentUserPlaylists from "../functions/getCurrentUserPlaylists";
 
 interface IAuthedApp {
   accessToken: string;
 }
 
-const AuthedContent: React.FC<IAuthedApp> = ({ accessToken }) => {
+const AuthedContent: React.FC<IAuthedApp> = async ({ accessToken }) => {
+  const playlists = await getCurrentUserPlaylists(accessToken);
+
   return (
     <>
-      <PlaylistSection accessToken={accessToken} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <PlaylistSection playlists={playlists} />
+      </Suspense>
     </>
   );
 };
