@@ -1,11 +1,20 @@
 import { Track } from "../../app/types";
 
-const getPlaylistItems = (
+const getPlaylistItems = async (
   accessToken: string,
   playlistId: string,
   total: number,
 ): Promise<Track[]> => {
-  return getPlaylistItemsWithOffset(accessToken, playlistId, 0);
+  const tracks: Track[] = [];
+  for (let offset = 0; offset < total; offset += 100) {
+    const offsetTracks = await getPlaylistItemsWithOffset(
+      accessToken,
+      playlistId,
+      offset,
+    );
+    tracks.push(...offsetTracks);
+  }
+  return tracks;
 };
 
 const getPlaylistItemsWithOffset = (
@@ -14,7 +23,7 @@ const getPlaylistItemsWithOffset = (
   offset: number,
 ): Promise<Track[]> =>
   fetch(
-    `https://api.spotify.com/v1/playlists/${playlistId}/tracks?fields=items%28track%28id%29%29&limit=100&offset=${offset}`,
+    `https://api.spotify.com/v1/playlists/${playlistId}/tracks?fields=items%28track%28id%2Cname%2Curi%29%29&limit=100&offset=${offset}`,
     {
       method: "GET",
       headers: {
@@ -28,7 +37,10 @@ const getPlaylistItemsWithOffset = (
       items.map((item) => item.track as Record<string, unknown>),
     )
     .then((tracks: Record<string, unknown>[]) =>
-      tracks.map((track) => ({ id: track.id }) as Track),
+      tracks.map(
+        (track) =>
+          ({ id: track.id, name: track.name, uri: track.uri }) as Track,
+      ),
     );
 
 export default getPlaylistItems;
