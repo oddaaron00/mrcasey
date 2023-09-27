@@ -7,11 +7,11 @@ interface IPlaylistsSection {
 
 const PlaylistSection: React.FC<IPlaylistsSection> = ({ playlists }) => {
   return (
-    <section>
+    <ul>
       {playlists.map((playlist) => (
         <PlaylistSectionItem key={playlist.id} playlist={playlist} />
       ))}
-    </section>
+    </ul>
   );
 };
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Playlist } from "../types";
 
 interface IPlaylistSectionItem {
@@ -5,7 +6,13 @@ interface IPlaylistSectionItem {
 }
 
 const PlaylistSectionItem: React.FC<IPlaylistSectionItem> = ({ playlist }) => {
-  return <div>{playlist.name}</div>;
+  return (
+    <li>
+      <Link href={`/projects/spotifyTrueShuffler/${playlist.id}`}>
+        {playlist.name}
+      </Link>
+    </li>
+  );
 };
 
 export default PlaylistSectionItem;
