@@ -1,8 +1,7 @@
-import { Title } from "@/app/components";
 import Loading from "@/app/loading";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { GoToGithub } from "../../components";
+import { ProjectContainer } from "../components";
 
 export const metadata: Metadata = {
   title: "mrcasey | Geotate",
@@ -15,14 +14,13 @@ const App = dynamic(() => import("./app/App"), {
   loading: Loading,
 });
 
-export default function Geotate() {
-  return (
-    <main className="flex-1 flex-col text-center">
-      <div className="p-2">
-        <Title text="Geotate" />
-        <GoToGithub href="https://github.com/oddaaron00/mrcasey/tree/main/src/app/projects/geotate" />
-      </div>
-      <App />
-    </main>
-  );
-}
+const Geotate: React.FC<{}> = () => (
+  <ProjectContainer
+    title="Geotate"
+    githubHref="https://github.com/oddaaron00/mrcasey/tree/main/src/app/projects/geotate"
+  >
+    <App />
+  </ProjectContainer>
+);
+
+export default Geotate;
