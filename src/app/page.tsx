@@ -16,7 +16,7 @@ export default function Home() {
           <span className="pt-1 text-xl">{"That's me :)"}</span>
         </div>
         <PaddedSection id="about" subtitle="About Me">
-          <p>Coming soon</p>
+          <p className="text-lg">Coming soon</p>
         </PaddedSection>
         <PaddedSection
           id="projects"
@@ -30,7 +30,7 @@ export default function Home() {
           />
         </PaddedSection>
         <PaddedSection id="cv" subtitle="CV">
-          <p>Coming soon</p>
+          <p className="text-lg">Coming soon</p>
         </PaddedSection>
       </main>
     </>
