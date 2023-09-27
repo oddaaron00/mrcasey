@@ -1,7 +1,7 @@
 import Loading from "@/app/loading";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { Header } from "../components";
+import { ProjectContainer } from "../components";
 
 export const metadata: Metadata = {
   title: "mrcasey | Spotify True Shuffler",
@@ -15,16 +15,13 @@ const App = dynamic(() => import("./app/App"), {
   loading: Loading,
 });
 
-export default function SpotifyTrueShuffler() {
-  return (
-    <>
-      <Header
-        title="Spotify True Shuffler"
-        githubHref="https://github.com/oddaaron00/mrcasey/tree/main/src/app/projects/spotifyTrueShuffler"
-      />
-      <main className="flex-1 flex-col text-center">
-        <App />
-      </main>
-    </>
-  );
-}
+const SpotifyTrueShuffler: React.FC<{}> = () => (
+  <ProjectContainer
+    title="Spotify True Shuffler"
+    githubHref="https://github.com/oddaaron00/mrcasey/tree/main/src/app/projects/spotifyTrueShuffler"
+  >
+    <App />
+  </ProjectContainer>
+);
+
+export default SpotifyTrueShuffler;
