@@ -14,7 +14,7 @@ const PlaylistPage: React.FC<IPlaylistPage> = async ({
   params: { playlistId },
 }) => {
   const accessToken = cookies().get("spotifyAccessToken")?.value;
-  if (!accessToken) redirect("/projects/spotifyTrueShuffler");
+  if (!accessToken) redirect("/projects/spotifyShuffleCurator");
   const total = await getPlaylistItemTotal(accessToken, playlistId);
   const playlistTracks = await getPlaylistItems(accessToken, playlistId, total);
 

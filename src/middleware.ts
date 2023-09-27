@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function middleware(request: NextRequest) {
-  const spotifyTrueShufflerUrl = new URL(
-    "/projects/spotifyTrueShuffler",
+  const spotifyShuffleCuratorUrl = new URL(
+    "/projects/spotifyShuffleCurator",
     request.url,
   );
 
   if (
     request.nextUrl.pathname.startsWith(
-      "/projects/spotifyTrueShuffler/callback",
+      "/projects/spotifyShuffleCurator/callback",
     )
   ) {
     const { searchParams } = request.nextUrl;
@@ -23,10 +23,10 @@ export async function middleware(request: NextRequest) {
       error && console.log("Error in Spotify middleware: ", error);
       !state &&
         console.log("No state parameter provided in Spotify middleware");
-      return NextResponse.rewrite(spotifyTrueShufflerUrl);
+      return NextResponse.rewrite(spotifyShuffleCuratorUrl);
     }
     const redirectUri = new URL(
-      "/projects/spotifyTrueShuffler/callback",
+      "/projects/spotifyShuffleCurator/callback",
       request.url,
     ).toString();
     const grantType = "authorization_code";
@@ -54,15 +54,15 @@ export async function middleware(request: NextRequest) {
         );
       !accessToken &&
         console.log("No Spotify access token provided in Spotify middleware");
-      return NextResponse.rewrite(spotifyTrueShufflerUrl);
+      return NextResponse.rewrite(spotifyShuffleCuratorUrl);
     }
 
-    const response = NextResponse.redirect(spotifyTrueShufflerUrl);
+    const response = NextResponse.redirect(spotifyShuffleCuratorUrl);
     response.cookies.set("spotifyAccessToken", accessToken);
     return response;
   }
 }
 
 export const config = {
-  matcher: ["/projects/spotifyTrueShuffler/callback/:path*"],
+  matcher: ["/projects/spotifyShuffleCurator/callback/:path*"],
 };

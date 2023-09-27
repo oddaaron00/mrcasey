@@ -4,9 +4,9 @@ import dynamic from "next/dynamic";
 import { ProjectContainer } from "../components";
 
 export const metadata: Metadata = {
-  title: "mrcasey | Spotify True Shuffler",
+  title: "mrcasey | Spotify Shuffle Curator",
   description:
-    "Casey Goodings – Software Engineer and Developer | Spotify True Shuffler",
+    "Casey Goodings – Software Engineer and Developer | Spotify Shuffler Curator",
   robots: "index, nofollow",
 };
 
@@ -15,13 +15,13 @@ const App = dynamic(() => import("./app/App"), {
   loading: Loading,
 });
 
-const SpotifyTrueShuffler: React.FC<{}> = () => (
+const SpotifyShuffleCurator: React.FC<{}> = () => (
   <ProjectContainer
-    title="Spotify True Shuffler"
-    githubHref="https://github.com/oddaaron00/mrcasey/tree/main/src/app/projects/spotifyTrueShuffler"
+    title="Spotify Shuffle Curator"
+    githubHref="https://github.com/oddaaron00/mrcasey/tree/main/src/app/projects/spotifyShuffleCurator"
   >
     <App />
   </ProjectContainer>
 );
 
-export default SpotifyTrueShuffler;
+export default SpotifyShuffleCurator;

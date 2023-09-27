@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
-      url: "https://www.mrcasey.com/projects/spotifyTrueShuffler",
+      url: "https://www.mrcasey.com/projects/spotifyShuffleCurator",
       lastModified: new Date(),
     },
   ];

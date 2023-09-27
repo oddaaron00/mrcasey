@@ -10,7 +10,7 @@ const SignInForm: React.FC<{}> = () => {
     if (!clientId) return;
     const scope = "playlist-read-private user-modify-playback-state";
     const redirectUri = new URL(
-      "/projects/spotifyTrueShuffler/callback",
+      "/projects/spotifyShuffleCurator/callback",
       process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI_BASE,
     ).toString();
     console.log("redirectUri:", redirectUri);
