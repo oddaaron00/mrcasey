@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import getPlaylistItems from "../app/functions/getPlaylistItems";
+import getPlaylistItems from "./functions/getPlaylistItems";
 
 interface IPlaylistPage {
   params: {
