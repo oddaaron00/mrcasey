@@ -1,7 +1,7 @@
-const getPlaylistItems = (
+const getPlaylistItemTotal = (
   accessToken: string,
   playlistId: string,
-): Promise<{ total: number; limit: number }> =>
+): Promise<number> =>
   fetch(
     `https://api.spotify.com/v1/playlists/${playlistId}/tracks?fields=limit%2Ctotal`,
     {
@@ -12,6 +12,6 @@ const getPlaylistItems = (
     },
   )
     .then((result) => result.json())
-    .then((json) => ({ limit: json.limit, total: json.total }));
+    .then((json) => json.total);
 
-export default getPlaylistItems;
+export default getPlaylistItemTotal;
