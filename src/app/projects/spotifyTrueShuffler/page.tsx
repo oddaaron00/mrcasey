@@ -20,7 +20,7 @@ export default function SpotifyTrueShuffler() {
   return (
     <main className="flex-1 flex-col text-center">
       <div className="p-2">
-        <Title text="Geotate" />
+        <Title text="Spotify True Shuffler" />
         <GoToGithub href="https://github.com/oddaaron00/mrcasey/tree/main/src/app/projects/spotifyTrueShuffler" />
       </div>
       <App />
