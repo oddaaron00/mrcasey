@@ -7,7 +7,7 @@ interface IProjectItem {
 
 export default function ProjectItem({ name, label }: IProjectItem) {
   return (
-    <Link href={`/projects/${name}`} className="text-lg">
+    <Link href={`/projects/${name}`} className="text-lg hover:underline">
       {label}
     </Link>
   );
