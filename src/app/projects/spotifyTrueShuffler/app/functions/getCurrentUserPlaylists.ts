@@ -10,7 +10,7 @@ const getCurrentUserPlaylists = (accessToken: string): Promise<Playlist[]> =>
     .then((result) => result.json())
     .then((json) => json.items)
     .then((items: Record<string, unknown>[]) =>
-      items.map((item) => ({ id: item.id }) as Playlist),
+      items.map((item) => ({ id: item.id, name: item.name }) as Playlist),
     );
 
 export default getCurrentUserPlaylists;
