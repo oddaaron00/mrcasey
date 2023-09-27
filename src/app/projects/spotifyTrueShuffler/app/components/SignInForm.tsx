@@ -11,9 +11,7 @@ const SignInForm: React.FC<{}> = () => {
     const scope = "playlist-read-private user-modify-playback-state";
     const redirectUri = new URL(
       "/projects/spotifyTrueShuffler/callback",
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:3000"
-        : "https://www.mrcasey.com",
+      process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI_BASE,
     ).toString();
     console.log("redirectUri:", redirectUri);
     const state = randomBytes(20).toString("hex");
