@@ -1,4 +1,6 @@
-const getCurrentUserPlaylists = (accessToken: string): Promise<string> =>
+const getCurrentUserPlaylists = (
+  accessToken: string,
+): Promise<Record<string, unknown>> =>
   fetch("https://api.spotify.com/v1/me/playlists", {
     method: "GET",
     headers: {

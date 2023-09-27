@@ -1,4 +1,4 @@
-import { PlaylistsSection } from ".";
+import { PlaylistSection } from ".";
 
 interface IAuthedApp {
   accessToken: string;
@@ -7,7 +7,7 @@ interface IAuthedApp {
 const AuthedContent: React.FC<IAuthedApp> = ({ accessToken }) => {
   return (
     <>
-      <PlaylistsSection accessToken={accessToken} />
+      <PlaylistSection accessToken={accessToken} />
     </>
   );
 };
