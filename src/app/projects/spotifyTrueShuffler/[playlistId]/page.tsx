@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
 import { TrackPlayer } from "./component";
 import { getPlaylistItemTotal, getPlaylistItems } from "./functions";
 
@@ -19,7 +20,9 @@ const PlaylistPage: React.FC<IPlaylistPage> = async ({
 
   return (
     <main className="flex-1 flex-col text-center">
-      <TrackPlayer tracks={playlistTracks} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <TrackPlayer tracks={playlistTracks} />
+      </Suspense>
     </main>
   );
 };
