@@ -8,7 +8,10 @@ interface IPlaylistSectionItem {
 const PlaylistSectionItem: React.FC<IPlaylistSectionItem> = ({ playlist }) => {
   return (
     <li>
-      <Link href={`/projects/spotifyShuffleCurator/${playlist.id}`}>
+      <Link
+        href={`/projects/spotifyShuffleCurator/${playlist.id}`}
+        className="hover:underline"
+      >
         {playlist.name}
       </Link>
     </li>
