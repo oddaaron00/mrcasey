@@ -13,7 +13,7 @@ const ProjectContainer: React.FC<IProjectContainer> = ({
 }) => (
   <>
     <Header title={title} githubHref={githubHref} />
-    <main className="flex-1 flex-col text-center">{children}</main>
+    <main className="flex-1 flex-col pb-8 text-center">{children}</main>
   </>
 );
 
