@@ -8,7 +8,7 @@ const SignInForm: React.FC<{}> = () => {
     const responseType = "code";
     const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
     if (!clientId) return;
-    const scope = "playlist-read-private";
+    const scope = "playlist-read-private user-modify-playback-state";
     const redirectUri = new URL(
       "/projects/spotifyTrueShuffler/callback",
       process.env.NODE_ENV === "development"

@@ -1,4 +1,5 @@
-import { NextTrack } from ".";
+import { cookies } from "next/headers";
+import { AddTracksToQueue } from ".";
 import { Track } from "../../app/types";
 
 interface ITrackPlayer {
@@ -6,9 +7,10 @@ interface ITrackPlayer {
 }
 
 const TrackPlayer: React.FC<ITrackPlayer> = ({ tracks }) => {
+  const accessToken = cookies().get("spotifyAccessToken")?.value!;
   return (
     <section>
-      <NextTrack />
+      <AddTracksToQueue accessToken={accessToken} tracks={tracks} />
     </section>
   );
 };

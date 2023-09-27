@@ -5,4 +5,6 @@ export type Playlist = {
 
 export type Track = {
   id: string;
+  name: string;
+  uri: string;
 };
