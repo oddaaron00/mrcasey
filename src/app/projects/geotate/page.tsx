@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 import { ProjectContainer } from "../components";
 
 export const metadata: Metadata = {
-  title: "mrcasey | Geotate",
-  description: "Casey Goodings – Software Engineer and Developer | Geotate",
+  title: "Geotate | mrcasey",
+  description: "Geotate | Casey Goodings – Software Engineer and Developer",
   robots: "index, nofollow",
 };
 

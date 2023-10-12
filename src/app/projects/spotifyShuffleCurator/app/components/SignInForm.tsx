@@ -23,7 +23,10 @@ const SignInForm: React.FC<{}> = () => {
 
   return (
     <form action={spotifySignIn}>
-      <button type="submit" className="rounded-lg px-2 py-1 hover:bg-black-75">
+      <button
+        type="submit"
+        className="cursor-pointer rounded-lg px-2 py-1 hover:bg-black-75"
+      >
         Sign In To Spotify
       </button>
     </form>
