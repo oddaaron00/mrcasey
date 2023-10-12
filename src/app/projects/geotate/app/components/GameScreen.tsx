@@ -346,7 +346,7 @@ export default function GameScreen({
               ? "Finish"
               : "Next"
           }
-          className="hover:bg-black-75 rounded-lg"
+          className="rounded-lg hover:bg-black-75"
         />
       </form>
       <div id="answerContainer" className="m-1">
@@ -360,7 +360,7 @@ export default function GameScreen({
                   : selectedBearing
                 : 0}
             </p>
-            <p>Points: {cumulativeScore}</p>
+            <p>Points: {Math.abs(selectedBearing || 0)}</p>
           </>
         )}
       </div>
