@@ -23,7 +23,9 @@ const SignInForm: React.FC<{}> = () => {
 
   return (
     <form action={spotifySignIn}>
-      <button type="submit">Sign In To Spotify</button>
+      <button type="submit" className="rounded-lg px-2 py-1 hover:bg-black-75">
+        Sign In To Spotify
+      </button>
     </form>
   );
 };
