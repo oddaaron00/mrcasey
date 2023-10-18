@@ -16,7 +16,7 @@ const AddTracksToQueue: React.FC<IAddTracksToQueue> = ({
     onClick={() => addTracksToQueue(accessToken, tracks, 3)}
     className="cursor-pointer rounded-lg px-2 py-1 hover:bg-black-75"
   >
-    Add 3 Tracks To Queue
+    Add 3 Random Tracks To Queue
   </button>
 );
 
