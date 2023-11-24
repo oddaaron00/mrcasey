@@ -1,28 +1,14 @@
-export const characterOptions = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-];
+export const keyboardOptions = {
+  QWERTY: {
+    1: ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
+    2: ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
+    3: ["z", "x", "c", "v", "b", "n", "m"],
+  },
+};
+
+export const getCharacterOptionsFromKeyboard = (
+  layout: keyof typeof keyboardOptions,
+): string[] => {
+  const characterRows = keyboardOptions[layout];
+  return Object.values(characterRows).flat();
+};

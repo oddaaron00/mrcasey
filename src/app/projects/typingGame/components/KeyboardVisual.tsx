@@ -1,6 +1,8 @@
+import { keyboardOptions } from "../app/constants";
 import KeyVisual from "./KeyVisual";
 
 interface IKeyboardVisual {
+  keyboardLayout: keyof typeof keyboardOptions;
   activeCharacter: string;
 }
 
@@ -16,7 +18,10 @@ const GeneratedKeyVisual: React.FC<IGeneratedKeyVisual> = ({
   <KeyVisual character={character} isActive={character === activeCharacter} />
 );
 
-const KeyboardVisual: React.FC<IKeyboardVisual> = ({ activeCharacter }) => {
+const KeyboardVisual: React.FC<IKeyboardVisual> = ({
+  keyboardLayout,
+  activeCharacter,
+}) => {
   return (
     <div>
       <GeneratedKeyVisual character="q" activeCharacter={activeCharacter} />

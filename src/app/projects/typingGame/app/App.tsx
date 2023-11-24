@@ -2,16 +2,19 @@
 
 import { useCallback, useEffect, useState } from "react";
 import KeyboardVisual from "../components/KeyboardVisual";
-import { characterOptions } from "./constants";
-import { KeyboardLayout } from "./types";
+import { getCharacterOptionsFromKeyboard, keyboardOptions } from "./constants";
 
 export default function App() {
-  const getRandomCharacter = () =>
-    characterOptions[Math.floor(Math.random() * characterOptions.length)];
+  const [keyboardLayout, setKeyboardLayout] =
+    useState<keyof typeof keyboardOptions>("QWERTY");
 
-  const [keyboardLayout, setKeyboardLayout] = useState<KeyboardLayout>(
-    KeyboardLayout.EN_GB,
-  );
+  const getRandomCharacter = useCallback(() => {
+    const characterOptions = getCharacterOptionsFromKeyboard(keyboardLayout);
+    return characterOptions[
+      Math.floor(Math.random() * characterOptions.length)
+    ];
+  }, [keyboardLayout]);
+
   const [activeCharacter, setActiveCharacter] = useState<string>(
     getRandomCharacter(),
   ); // TODO: Type correctly?
@@ -22,7 +25,7 @@ export default function App() {
         setActiveCharacter(getRandomCharacter());
       }
     },
-    [activeCharacter],
+    [activeCharacter, getRandomCharacter],
   );
 
   useEffect(() => {
@@ -35,7 +38,10 @@ export default function App() {
 
   return (
     <article className="flex flex-col items-center">
-      <KeyboardVisual activeCharacter={activeCharacter} />
+      <KeyboardVisual
+        keyboardLayout={keyboardLayout}
+        activeCharacter={activeCharacter}
+      />
     </article>
   );
 }
