@@ -14,5 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://www.mrcasey.com/projects/spotifyShuffleCurator",
       lastModified: new Date(),
     },
+    {
+      url: "https://www.mrcasey.com/projects/keyboardGame",
+      lastModified: new Date(),
+    },
   ];
 }
