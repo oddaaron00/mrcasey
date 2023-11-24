@@ -4,9 +4,12 @@ interface IKeyVisual {
 }
 
 const KeyVisual: React.FC<IKeyVisual> = ({ character, isActive }) => {
-  return (
-    <div className={isActive ? "bg-black-75 font-bold" : ""}>{character}</div>
-  );
+  const defaultClasses = "flex justify-center items-center w-16 h-16";
+  const extraClasses = "font-bold bg-black-75";
+  const classes = isActive
+    ? `${defaultClasses} ${extraClasses}`
+    : defaultClasses;
+  return <div className={classes}>{character}</div>;
 };
 
 export default KeyVisual;
