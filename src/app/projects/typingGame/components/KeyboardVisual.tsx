@@ -22,36 +22,21 @@ const KeyboardVisual: React.FC<IKeyboardVisual> = ({
   keyboardLayout,
   activeCharacter,
 }) => {
+  const layoutObject = keyboardOptions[keyboardLayout];
+
   return (
     <div>
-      <GeneratedKeyVisual character="q" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="w" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="e" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="r" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="t" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="y" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="u" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="i" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="o" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="p" activeCharacter={activeCharacter} />
-      <br />
-      <GeneratedKeyVisual character="a" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="s" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="d" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="f" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="g" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="h" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="j" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="k" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="l" activeCharacter={activeCharacter} />
-      <br />
-      <GeneratedKeyVisual character="z" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="x" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="c" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="v" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="b" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="n" activeCharacter={activeCharacter} />
-      <GeneratedKeyVisual character="m" activeCharacter={activeCharacter} />
+      {Object.entries(layoutObject).map(([index, row]) => (
+        <div key={index} className="flex">
+          {row.map((character) => (
+            <GeneratedKeyVisual
+              key={character}
+              character={character}
+              activeCharacter={activeCharacter}
+            />
+          ))}
+        </div>
+      ))}
     </div>
   );
 };

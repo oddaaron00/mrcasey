@@ -5,10 +5,7 @@ interface IKeyVisual {
 
 const KeyVisual: React.FC<IKeyVisual> = ({ character, isActive }) => {
   return (
-    <div>
-      {character}
-      {isActive && " ACTIVE"}
-    </div>
+    <div className={isActive ? "bg-black-75 font-bold" : ""}>{character}</div>
   );
 };
 
