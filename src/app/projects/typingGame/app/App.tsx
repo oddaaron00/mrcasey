@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import KeyboardVisual from "../components/KeyboardVisual";
 import { characterOptions } from "./constants";
 import { KeyboardLayout } from "./types";
 
@@ -33,6 +34,8 @@ export default function App() {
   }, [keyboardListener]);
 
   return (
-    <article className="flex flex-col items-center">{activeCharacter}</article>
+    <article className="flex flex-col items-center">
+      <KeyboardVisual activeCharacter={activeCharacter} />
+    </article>
   );
 }
