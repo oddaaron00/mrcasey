@@ -28,6 +28,7 @@ export default function Home() {
             name="spotifyShuffleCurator"
             label="Spotify Shuffle Curator"
           />
+          <ProjectItem name="typingGame" label="Typing Game" />
         </PaddedSection>
         <PaddedSection id="cv" subtitle="CV">
           <p className="text-lg">Coming soon</p>
