@@ -8,14 +8,23 @@ interface IKeyboardVisual {
 
 interface IGeneratedKeyVisual {
   character: string;
+  scale: number;
+  hideLabel?: boolean;
   activeCharacter: string;
 }
 
 const GeneratedKeyVisual: React.FC<IGeneratedKeyVisual> = ({
   character,
+  scale,
+  hideLabel,
   activeCharacter,
 }) => (
-  <KeyVisual character={character} isActive={character === activeCharacter} />
+  <KeyVisual
+    character={character}
+    scale={scale}
+    hideLabel={hideLabel}
+    isActive={character === activeCharacter}
+  />
 );
 
 const KeyboardVisual: React.FC<IKeyboardVisual> = ({
@@ -28,10 +37,12 @@ const KeyboardVisual: React.FC<IKeyboardVisual> = ({
     <div>
       {Object.entries(layoutObject).map(([index, row]) => (
         <div key={index} className="flex">
-          {row.map((character) => (
+          {row.map(({ key: characterKey, scale, hideLabel }) => (
             <GeneratedKeyVisual
-              key={character}
-              character={character}
+              key={`${characterKey}${scale}`}
+              character={characterKey}
+              scale={scale}
+              hideLabel={hideLabel}
               activeCharacter={activeCharacter}
             />
           ))}
