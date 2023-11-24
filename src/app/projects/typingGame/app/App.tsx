@@ -1,7 +1,38 @@
 "use client";
 
-import "mapbox-gl/dist/mapbox-gl.css";
+import { useCallback, useEffect, useState } from "react";
+import { characterOptions } from "./constants";
+import { KeyboardLayout } from "./types";
 
 export default function App() {
-  return <article className="flex flex-col items-center">Typing Game</article>;
+  const getRandomCharacter = () =>
+    characterOptions[Math.floor(Math.random() * characterOptions.length)];
+
+  const [keyboardLayout, setKeyboardLayout] = useState<KeyboardLayout>(
+    KeyboardLayout.EN_GB,
+  );
+  const [activeCharacter, setActiveCharacter] = useState<string>(
+    getRandomCharacter(),
+  ); // TODO: Type correctly?
+
+  const keyboardListener = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === activeCharacter) {
+        setActiveCharacter(getRandomCharacter());
+      }
+    },
+    [activeCharacter],
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", keyboardListener);
+
+    return () => {
+      document.removeEventListener("keydown", keyboardListener);
+    };
+  }, [keyboardListener]);
+
+  return (
+    <article className="flex flex-col items-center">{activeCharacter}</article>
+  );
 }
