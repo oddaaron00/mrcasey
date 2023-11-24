@@ -4,64 +4,79 @@ export const keyboardOptions = {
       {
         key: "§",
         scale: 1,
+        ignore: true,
       },
       {
         key: "1",
         scale: 1,
+        ignore: true,
       },
       {
         key: "2",
         scale: 1,
+        ignore: true,
       },
       {
         key: "3",
         scale: 1,
+        ignore: true,
       },
       {
         key: "4",
         scale: 1,
+        ignore: true,
       },
       {
         key: "5",
         scale: 1,
+        ignore: true,
       },
       {
         key: "6",
         scale: 1,
+        ignore: true,
       },
       {
         key: "7",
         scale: 1,
+        ignore: true,
       },
       {
         key: "8",
         scale: 1,
+        ignore: true,
       },
       {
         key: "9",
         scale: 1,
+        ignore: true,
       },
       {
         key: "0",
         scale: 1,
+        ignore: true,
       },
       {
         key: "-",
         scale: 1,
+        ignore: true,
       },
       {
         key: "=",
         scale: 1,
+        ignore: true,
       },
       {
         key: "Backspace",
         scale: 1.5,
+        ignore: true,
       },
     ],
     [
       {
         key: "Tab",
         scale: 1.5,
+        ignore: true,
       },
       {
         key: "q",
@@ -106,20 +121,24 @@ export const keyboardOptions = {
       {
         key: "[",
         scale: 1,
+        ignore: true,
       },
       {
         key: "]",
         scale: 1,
+        ignore: true,
       },
       {
         key: "Enter",
         scale: 1,
+        ignore: true,
       },
     ],
     [
       {
         key: "CapsLock",
         scale: 2,
+        ignore: true,
       },
       {
         key: "a",
@@ -160,29 +179,35 @@ export const keyboardOptions = {
       {
         key: ";",
         scale: 1,
+        ignore: true,
       },
       {
         key: "'",
         scale: 1,
+        ignore: true,
       },
       {
         key: "\\",
         scale: 1,
+        ignore: true,
       },
       {
         key: "Enter",
         scale: 0.5,
         hideLabel: true,
+        ignore: true,
       },
     ],
     [
       {
         key: "Shift",
         scale: 1.25,
+        ignore: true,
       },
       {
         key: "`",
         scale: 1,
+        ignore: true,
       },
       {
         key: "z",
@@ -215,18 +240,22 @@ export const keyboardOptions = {
       {
         key: ",",
         scale: 1,
+        ignore: true,
       },
       {
         key: ".",
         scale: 1,
+        ignore: true,
       },
       {
         key: "/",
         scale: 1,
+        ignore: true,
       },
       {
         key: "Shift",
         scale: 2.25,
+        ignore: true,
       },
     ],
   ],
@@ -236,5 +265,8 @@ export const getCharacterOptionsFromKeyboard = (
   layout: keyof typeof keyboardOptions,
 ): string[] => {
   const characterRows = keyboardOptions[layout];
-  return characterRows.flat().map((obj) => obj.key);
+  return characterRows
+    .flat()
+    .filter((obj) => !obj.ignore)
+    .map((obj) => obj.key);
 };
